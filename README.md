@@ -16,19 +16,19 @@ Users can test their knowledge with timed questions, choose difficulty level, an
 
 ### Home Page
 
-![Home](./screenshots/Home.png)
+![Home](./screenshots/Home.JPG)
 
 ### Starting
 
-![Home](./screenshots/to start.png)
+![Home](./screenshots/to start.JPG)
 
 ### Quiz Page
 
-![Quiz](./screenshots/Quiz.png)
+![Quiz](./screenshots/Quiz.JPG)
 
 ### Result Page
 
-![Result](./screenshots/Result.png)
+![Result](./screenshots/Result.JPG)
 
 ---
 
