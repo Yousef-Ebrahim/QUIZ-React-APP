@@ -80,7 +80,7 @@ function QuizPage() {
               <div
                 className="bg-primary h-3 rounded-full transition-all"
                 style={{
-                  width: `${((currentQuestion + 1) / questions.length) * 100}%`,
+                  width: `${(currentQuestion / questions.length) * 100}%`,
                 }}
               ></div>
             </div>
