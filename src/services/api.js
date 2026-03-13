@@ -1,3 +1,5 @@
+// Axios instance for API requests
+
 import axios from "axios";
 
 const api = axios.create({

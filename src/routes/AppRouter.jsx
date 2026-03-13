@@ -1,17 +1,42 @@
+// Application routes
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Home from "../pages/Home";
 import QuizPage from "../pages/QuizPage";
 import ResultPage from "../pages/ResultPage";
-import Navbar from "../components/Navbar";
+import Layout from "../components/Layout";
 
 export default function AppRouter() {
   return (
-    <BrowserRouter>        <Navbar />
-
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/quiz" element={<QuizPage />} />
-        <Route path="/result" element={<ResultPage />} />
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <Home />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/quiz"
+          element={
+            <Layout>
+              <QuizPage />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/result"
+          element={
+            <Layout>
+              <ResultPage />
+            </Layout>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

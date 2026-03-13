@@ -1,38 +1,30 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { LampDesk, Flame, Zap, Skull, Brain } from "../../src/icons";
 import { useNavigate } from "react-router-dom";
 import { useCountdown } from "../Hooks/useCountdown";
+import { useQuiz } from "../context/QuizContext";
 export default function Home() {
-  const [difficulty, setDifficulty] = useState("");
   const [countdownActive, setCountdownActive] = useState(false);
-  const navigate = useNavigate();
+  const { difficulty, setDifficulty } = useQuiz();
   const base = "btn btn-lg gap-2 transition-all duration-300 min-w-[140px]";
-
+  const navigate = useNavigate();
   const count = useCountdown(
     5,
     () => navigate(`/quiz?difficulty=${difficulty}`),
     countdownActive,
   );
 
-  console.log(count);
-
-  const handleStart = () => {
-    if (!difficulty) return;
-    setCountdownActive(true);
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-green-100 flex flex-col">
-      {/* Content */}
+    // stable ui
+    <div className="min-h-screen bg-base-200 flex flex-col">
       <div className="flex flex-1 justify-center items-center">
-        <div className="bg-white bg-opacity-80 backdrop-blur-md p-10 rounded-xl shadow-2xl flex flex-col items-center gap-6 text-center max-w-lg w-full">
-          {/* Title */}
+        <div className="bg-base-100 p-10 rounded-xl shadow-2xl flex flex-col items-center gap-6 text-center max-w-lg w-full">
           <h1 className="font-bebas text-5xl flex items-center gap-2">
             <LampDesk size={40} color="blue" />
             <span className="bg-gradient-to-r from-blue-500 to-green-400 text-transparent bg-clip-text">
-              IQ
+              IQ Quiz Challenge
+
             </span>{" "}
-            Quiz Challenge
           </h1>
           <h3 className="font-bebas text-3xl text-gray-700">
             Test your knowledge in 60 seconds
@@ -86,7 +78,7 @@ export default function Home() {
 
               {/* Placeholder Message */}
               {!difficulty && (
-                <p className="text-red-500 mt-2 font-semibold animate-pulse">
+                <p className="text-red-500 mt-2 font-semibold animate-bounce">
                   Please choose exam difficulty
                 </p>
               )}
@@ -94,7 +86,7 @@ export default function Home() {
               {/* Start Button */}
               <button
                 disabled={!difficulty}
-                onClick={handleStart}
+                onClick={() => setCountdownActive(true)}
                 className={`btn btn-success btn-lg mt-6 transition-all duration-300 ${
                   !difficulty
                     ? "opacity-50 cursor-not-allowed"
